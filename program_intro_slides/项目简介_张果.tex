@@ -1,0 +1,379 @@
+% !Mode:: "TeX:UTF-8"
+\documentclass{beamer}
+
+\mode<presentation>
+{
+\usetheme{Warsaw}
+
+\setbeamercovered{transparent}
+}
+
+\usepackage[UTF8]{ctex} % 支持中文
+
+% 分页Slide不编号
+\setbeamertemplate{frametitle continuation}{}
+
+% 插入多列
+\usepackage{multicol}
+
+% 插入链接
+\usepackage{hyperref}
+\hypersetup{urlcolor=blue}
+
+% 插入图片
+\usepackage{graphicx}
+
+% 插入代码
+\usepackage{xcolor}
+\definecolor{mygray}{RGB}{245,245,245}
+
+\usepackage{listings}
+\lstset{language=Python}
+\lstset{escapeinside=``}
+\lstset{numbers=left}
+\lstset{breaklines}
+\lstset{backgroundcolor=\color{mygray}}
+
+% 书签乱码解决方案
+% 在文件D:/CTEX/MiKTeX/tex/latex/beamer/base/beamer.cls中找到:
+% \PassOptionsToPackage{bookmarks=true,%
+%   bookmarksopen=true,%
+%   pdfborder={0 0 0},%
+%   pdfhighlight={/N},%
+%   unicode=true,%       <-------------- 加入此行
+%   linkbordercolor={.5 .5 .5}}{hyperref}
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+% \pgfdeclareimage[height=0.5cm]{university-logo}{university-logo-filename}
+% \logo{\pgfuseimage{university-logo}}
+
+
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+\begin{frame}<beamer>
+\frametitle{目录}
+\begin{multicols}{2}
+\tableofcontents[currentsection,currentsubsection]
+\end{multicols}
+\end{frame}
+}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command:
+
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\title{China's Prices Project at Xiamen University\\(CPP@XMU)}
+\subtitle{项目简介}
+
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+%\author{F.~Author\inst{1} \and S.~Another\inst{2}}
+\author{张果}
+
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+\institute[Universities of]
+{
+厦门大学\quad 王亚南经济研究院}
+
+\renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}
+\date{\today}
+
+% This is only inserted into the PDF information catalog. Can be left
+% out.
+\subject{Presentations}
+
+% title page
+\begin{frame}
+\titlepage
+\end{frame}
+
+% content
+\begin{frame}
+\frametitle{目录}
+\begin{multicols}{2}
+\tableofcontents
+\end{multicols}
+% You might wish to add the option [pausesections]
+\end{frame}
+
+\section{课题简介}
+\subsection{课题背景}
+\begin{frame}
+\frametitle{课题背景：CPI}
+\begin{itemize}
+  \item 中国官方CPI存在诸多问题
+  \begin{itemize}
+    \item 频率低、公布速度慢
+    \item 不公布原始数据
+    \item 不公布详细编制方案
+    \item 官方对于编制方案的解释力度不够
+  \end{itemize}
+  \item 大数据技术发展迅速
+  \begin{itemize}
+    \item 海量数据采集：高频采集海量数据
+    \item 海量数据储存：管理、实时发布海量数据
+    \item 海量数据清洗：处理海量非结构化数据
+    \item 海量数据分析：高性能/分布式计算、数据可视化
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{课题背景：线上市场}
+\begin{itemize}
+  \item 中国互联网市场上，大型活动日（如双十一）越来越多，活动越来越复杂
+  \item 大型活动日提供了一个理想的外生冲击，有利于解决内生性问题
+  \item 基于结构模型(structural approach)的实证文献非常少
+\end{itemize}
+\end{frame}
+
+\subsection{课题目标}
+\begin{frame}
+\frametitle{课题目标}
+\begin{itemize}
+  \item 第一阶段(2016.2-2016.10)：基于官方CPI编制标准和电商实时价格数据，编制线上高频价格指数
+  \item 第二阶段(2016.11-present)：基于大型活动日和电商微观数据，研究线上市场的产业组织特点
+\end{itemize}
+\end{frame}
+
+\subsection{文献综述}
+\begin{frame}
+\frametitle{文献综述：CPI}
+\begin{itemize}
+  \item 对中国CPI编制的讨论
+  \item 基于线上价格数据编制价格指数
+  \begin{itemize}
+    \item Billion Prices Project at MIT：\url{http://bpp.mit.edu/}
+    \item 清数iCPI：\url{http://www.bdecon.com/}
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{文献综述：线上市场}
+\begin{itemize}
+  \item 消费者：Adda\&Cooper(2006)
+  \item 零售商：Ellison\&Ellison(2005);Fan(2013)
+  \item 平台：Rysman(2009)
+  \item 互联网数据：Edelman(2012)
+\end{itemize}
+\end{frame}
+
+\subsection{感兴趣的方向}
+\begin{frame}
+\frametitle{感兴趣的方向}
+\begin{itemize}
+\item 主题(Topics)
+\begin{itemize}
+  \item Dynamic elasticity estimation and welfare analysis
+  \item Reputation dynamics
+  \item Search obfuscation
+\end{itemize}
+\item 方法(Methodologies)
+\begin{itemize}
+  \item 动态结构模型(Dynamic structural approach)
+  \item 离散选择模型(Discrete choice model)
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{数据来源}
+\begin{frame}
+\frametitle{数据来源}
+\begin{itemize}
+  \item 平台选择：市场份额最大的平台——Tmall,JD
+  \item 数据来源选择：搜索页搜索结果(前2-5页)$\to$商品详情页
+  \item 分类选择：基于CPI分类及其分类解释，分别对不同平台分别编制关键词列表
+\end{itemize}
+\end{frame}
+
+\subsection{初步成果}
+\begin{frame}
+\frametitle{初步成果}
+\begin{itemize}
+  \item 分布式爬虫+自动化运维系统：海量数据采集\footnotemark
+  \footnotetext{\tiny 部署需要，尚未开源}
+  \item 数据库方案：海量数据管理\footnotemark
+  \footnotetext{\tiny \url{https://github.com/xmucpp/cppdbKit}}
+  \item 初步数据分析\footnotemark
+  \footnotetext{\tiny \url{https://github.com/xmucpp/double11-data}}
+  \item 初步资料整理\footnotemark
+  \footnotetext{\tiny \url{https://github.com/xmucpp/double11-summary}}
+\end{itemize}
+\end{frame}
+
+
+\section{技术简介}
+% \subsection{结构模型}
+% \subsection{动态离散选择模型}
+\subsection{数据采集系统}
+\begin{frame}
+\frametitle{需求分析}
+\begin{itemize}
+  \item 可以应对网站反爬的爬虫
+  \item 可以调度多台机器的系统
+  \item 可以自动化管理多台机器的系统
+  \item 可以方便地调用数据的数据库系统
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{解决方案}
+\begin{itemize}
+  \item 分布式反爬+自动化运维系统
+  \begin{itemize}
+    \item 爬虫组件：爬虫模块、代理模块、日志模块
+    \item 分布式组件：机器调度模块、消息队列模块、脚本调用模块
+    \item 自动化运维组件：自动化部署模块、自动化管理模块
+  \end{itemize}
+  \item 数据库系统(developing)
+\end{itemize}
+\end{frame}
+
+\section{团队简介}
+\subsection{团队成员}
+\begin{frame}[allowframebreaks]
+\frametitle{团队成员}
+\begin{itemize}
+  \item 导师：茅家铭老师\footnotemark
+  \footnotetext{\tiny
+  \url{http://www.wise.xmu.edu.cn/people/faculty/a81c4142-cb73-4f3f-94b4-2b937d4c1acf.html}}
+  \item 负责人：张果(14)\footnotemark
+  \footnotetext{\tiny \url{https://guo-zhang.github.io/}}
+  \item 核心成员：林行健(13)、黄玺(14)、刘晓曼(15)、朱星宇(15)、张祎璘(15)、马宁(16)、唐瀚林(16)
+  \item 成员构成：
+  \begin{itemize}
+    \item 13级本科生：1人
+    \item 14级本科生：5人
+    \item 15级本科生：7人
+    \item 16级本科生：8人
+  \end{itemize}
+  \end{itemize}
+  \end{frame}
+  
+  \begin{frame}[allowframebreaks]
+  \frametitle{团队成员}
+  \begin{itemize}
+  \item 专业背景：
+  \begin{itemize}
+    \item 王亚南经济研究院：7人
+    \item 经济学院：6人
+    \item 计算机系：4人
+    \item 管理学院：1人
+    \item 外文学院：1人
+    \item 人文学院：1人
+    \item 国际学院：1人
+  \end{itemize} 
+  \framebreak
+  \begin{figure}
+  \begin{center}
+  \includegraphics[width=7cm,height=4cm]{cpp-coders.jpg} 
+  \caption{CPP主力程序员（从左到右：张果、黄玺、唐瀚林、林行健）}
+  \end{center}
+  \end{figure}
+\end{itemize}
+\end{frame}
+
+\subsection{团队分工}
+\begin{frame}
+\frametitle{团队分工}
+\begin{itemize}
+  \item 技术部
+  \begin{itemize}
+    \item 服务器组：林行健(13)、唐瀚林(14)
+    \item 数据库组：黄玺(14)、刘理(16)、李蔚然(16)
+    \item 爬虫组：马宁(16)、岳忠信(16)
+  \end{itemize}
+  \item 数据组：张祎璘(15)、周韵丰(14)、吕昕(14)
+  \item 宣传组：朱星宇(15)、姜昊(16)、杜雪旸(16)、林逸伦(15)
+  \item 文献组：张果(14)、刘晓曼(15)、郝泽栋(15)、庄建伟(15)、张伟贤(16)
+  \item 财务组：张晓博(14)、王芷若(15)
+\end{itemize}
+
+\end{frame}
+\section{进度简介}
+\subsection{当前进度}
+\begin{frame}
+\frametitle{当前进度}
+\begin{itemize}
+  \item 服务器组：修改分布式爬虫系统的bug
+  \item 数据库组：设计、测试数据库方案
+  \item 爬虫组：Tmall、JD评论爬虫
+  \item 数据组：双十一数据描述统计
+  \item 宣传组：项目网站制作
+  \item 文献组：双十一、双十二资料整理；梳理文献
+\end{itemize}
+\end{frame}
+
+\subsection{进度计划}
+\begin{frame}
+\frametitle{进度计划}
+\begin{itemize}
+  \item 数据库组：部署数据库
+  \item 数据组：双十一、双十二数据描述
+  \item 宣传组：上线项目网站
+  \item 文献组：双十二资料整理；梳理文献
+\end{itemize}
+\end{frame}
+
+\subsection{主要困难}
+\begin{frame}
+\frametitle{主要困难}
+\begin{itemize}
+  \item 技术：Tmall反爬机制不明，无法对应破解，爬虫效率仍然不太理想
+  \item 人员：缺少网络工程师、NLP工程师、机器学习工程师、网站设计、宣传文案等
+  \item 硬件：缺少高配置服务器一台
+  \item 资金：没有资金来源
+\end{itemize}
+\end{frame}
+
+\section{联系方式}
+\subsection{主要平台}
+\begin{frame}[allowframebreaks]
+\frametitle{主要平台}
+\begin{itemize}
+  \item 项目网站(正在修复)：\url{http://www.xmucpp.com/}
+  \item Github主页：\url{https://github.com/xmucpp}
+  \item 知乎专栏：\url{https://zhuanlan.zhihu.com/xmucpp}
+  \item 知乎账户：\url{https://www.zhihu.com/people/cpp-45-10}
+  \framebreak
+  \item 微信公众号：xmucpp2016(XMUCPP)
+\end{itemize}
+\begin{center}
+\includegraphics[width=4.5cm,height=4.5cm]{wechat.jpg}
+\end{center}
+\end{frame}
+
+\subsection{联系我们}
+\begin{frame}
+\frametitle{联系我们}
+\begin{itemize}
+  \item 项目邮箱(张果)：zhangguocpp@163.com
+  \item 加入我们(刘晓曼)：liuxiaomancpp@163.com
+  \item 知乎：
+  \begin{itemize}
+    \item CPP：\url{https://www.zhihu.com/people/cpp-45-10}
+    \item 张果：\url{https://www.zhihu.com/people/zhang_guo}
+    \item 刘晓曼：\url{https://www.zhihu.com/people/liu-xiao-man-3-2}
+    \item 朱星宇：\url{https://www.zhihu.com/people/felix-zhu-23}
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+  \includegraphics[width=7cm,height=7cm]{CPP.jpg}
+\end{center}
+\end{frame}
+
+\end{document}
